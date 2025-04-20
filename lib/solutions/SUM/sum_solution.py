@@ -1,7 +1,8 @@
 
 class SumSolution:
     
-    def sum(x, y):
+    def compute(x, y):
         return x + y
+
 
 
