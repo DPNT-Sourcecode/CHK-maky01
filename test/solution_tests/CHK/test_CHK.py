@@ -18,3 +18,18 @@ class TestCheckout():
         assert CheckoutSolution.checkout(self, "FFFF") == 30
         assert CheckoutSolution.checkout(self, "FFFFF") == 40
         assert CheckoutSolution.checkout(self, "FFFFFF") == 40
+        assert CheckoutSolution.checkout(self, "") == 0
+        assert CheckoutSolution.checkout(self, "123") == -1
+        assert CheckoutSolution.checkout(self, None) == -1
+        assert CheckoutSolution.checkout(self, "A") == 50
+        assert CheckoutSolution.checkout(self, "C") == 20
+        assert CheckoutSolution.checkout(self, "Z") == 50
+        assert CheckoutSolution.checkout(self, "AAA") == 130
+        assert CheckoutSolution.checkout(self, "AAAAA") == 200
+        assert CheckoutSolution.checkout(self, "AAAAAA") == 250
+        assert CheckoutSolution.checkout(self, "ABCD") == 115
+        assert CheckoutSolution.checkout(self, "AAABBCCDD") == 245
+        assert CheckoutSolution.checkout(self, "EEBBB") == 125
+        assert CheckoutSolution.checkout(self, "AABCDEFGHIJKLMNOPQRSTUVWXYZ") == 965
+        assert CheckoutSolution.checkout(self, "EENNRRFFUUVV") == 490
+        assert CheckoutSolution.checkout(self, "AAAAAABBEEHHHHHHHHHHKK") == 475
