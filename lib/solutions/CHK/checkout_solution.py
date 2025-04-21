@@ -3,8 +3,10 @@ import collections
 class CheckoutSolution:
     # skus = unicode string
     def checkout(self, skus):
-        self.PRICES = {'A': 50, 'B': 30, 'C': 20, 'D': 15}
-        self.SPECIAL_OFFERS = {'A': (3, 130), 'B': (2, 45)}
+        self.PRICES = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40}
+        self.SPECIAL_OFFERS_DISCOUNT = {'A': [(5, 200), (3, 130)], 'B': (2, 45)}
+        self.SPECIAL_OFFERS_FREE = {'E': (2, 'B')}
+
         # Check to see input is a string
         if not isinstance(skus, str):
             return -1
@@ -33,3 +35,4 @@ class CheckoutSolution:
 #     checkout = CheckoutSolution()
 #     skus = 'AABBCD'
 #     print(checkout.checkout(skus))
+
