@@ -11,7 +11,7 @@ class CheckoutSolution:
                                         'H': [(10, 80), (5, 45)], 'K': [(2, 120)], 'P': [(5, 200)],
                                         'Q': [(3, 80)], 'U':[(4, 120)], 'V': [(3, 130), (2, 90)]}
         self.SPECIAL_OFFERS_FREE = {'E': (2, 'B'), 'N': (3, 'M'), 'R': (3, 'Q')}
-        self.SPECIAL_OFFERS_GROUP = {'S', 'T', 'X', 'Y', 'Z'}
+        self.SPECIAL_OFFERS_GROUP = {'Z', 'S', 'T', 'Y', 'X'}
 
         # Check to see input is a string
         if not isinstance(skus, str):
@@ -37,6 +37,16 @@ class CheckoutSolution:
                 sku_counts_dict[free_sku] = max(0, sku_counts_dict[free_sku] - free_items)
                 print(f"Updated {free_sku} count: {sku_counts_dict[free_sku]}")
 
+        # need to do group offers in reverse order so that we can favour the removal of the most expensive items first and have the remaining items be the cheapest
+        # e.g. X is 17 and Z is 21, so remove the Z first.
+        # group count, do price, then remove the items in order of the group
+
+        for sku, count in sku_counts_dict.items():
+            if sku in self.SPECIAL_OFFERS_GROUP:
+                group_count = sum(sku_counts_dict[sku] for sku in self.SPECIAL_OFFERS_GROUP)
+                total_price += (group_count // 3) * 45
+                group_count %= 3
+
         total_price = 0
         for sku, count in sku_counts_dict.items():
             if sku in self.SPECIAL_OFFERS_DISCOUNT:
@@ -55,5 +65,6 @@ if __name__ == "__main__":
     print(checkout.checkout("AABCDEFGHIJKLMNOPQRSTUVWXYZ"))
     print(checkout.checkout("EENNRRFFUUVV"))
     print(checkout.checkout("AAAAAABBEEHHHHHHHHHHKK"))
+
 
 
