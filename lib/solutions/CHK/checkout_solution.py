@@ -33,6 +33,3 @@ class CheckoutSolution:
 #     checkout = CheckoutSolution()
 #     skus = 'AABBCD'
 #     print(checkout.checkout(skus))
-
-
-
