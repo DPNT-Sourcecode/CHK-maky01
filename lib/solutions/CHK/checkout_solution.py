@@ -1,9 +1,16 @@
 class CheckoutSolution:
     # skus = unicode string
     def checkout(self, skus):
-        self.PRICES = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10}
-        self.SPECIAL_OFFERS_DISCOUNT = {'A': [(5, 200), (3, 130)], 'B': [(2, 45)], 'F': [(3, 20)]}
-        self.SPECIAL_OFFERS_FREE = {'E': (2, 'B')}
+
+        self.PRICES = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10, 
+                       'G': 20, 'H': 10, 'I': 35, 'J': 60, 'K': 80, 'L': 90,
+                       'M': 15, 'N': 40, 'O': 10, 'P': 50, 'Q': 30, 'R': 50,
+                       'S': 30, 'T': 20, 'U': 40, 'V': 50, 'W': 20, 'X': 90,
+                       'Y': 10, 'Z': 50}
+        self.SPECIAL_OFFERS_DISCOUNT = {'A': [(5, 200), (3, 130)], 'B': [(2, 45)], 'F': [(3, 20)],
+                                        'H': [(10, 80), (5, 45)], 'K': [(2, 150)], 'P': [(5, 200)],
+                                        'Q': [(3, 80)], 'U':[(4, 120)], 'V': [(3, 130), (2, 90)]}
+        self.SPECIAL_OFFERS_FREE = {'E': (2, 'B'), 'N': (3, 'M'), 'R': (3, 'Q')}
 
         # Check to see input is a string
         if not isinstance(skus, str):
@@ -49,4 +56,5 @@ class CheckoutSolution:
 #     print(checkout.checkout("EEBB"))
 #     print(checkout.checkout("EEBBB"))
 #     print(checkout.checkout("AABBEE"))
+
 
