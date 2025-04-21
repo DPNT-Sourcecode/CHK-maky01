@@ -33,4 +33,3 @@ class TestCheckout():
         assert CheckoutSolution.checkout(self, "AABCDEFGHIJKLMNOPQRSTUVWXYZ") == 1015
         assert CheckoutSolution.checkout(self, "EENNRRFFUUVV") == 450
         assert CheckoutSolution.checkout(self, "AAAAAABBEEHHHHHHHHHHKK") == 590
-
