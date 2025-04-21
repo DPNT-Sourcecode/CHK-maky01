@@ -11,7 +11,7 @@ class CheckoutSolution:
                                         'H': [(10, 80), (5, 45)], 'K': [(2, 120)], 'P': [(5, 200)],
                                         'Q': [(3, 80)], 'U':[(4, 120)], 'V': [(3, 130), (2, 90)]}
         self.SPECIAL_OFFERS_FREE = {'E': (2, 'B'), 'N': (3, 'M'), 'R': (3, 'Q')}
-        self.SPECIAL_OFFERS_GROUP = {'Z', 'S', 'T', 'Y', 'X'}
+        self.SPECIAL_OFFERS_GROUP = ['Z', 'S', 'T', 'Y', 'X']
 
         # Check to see input is a string
         if not isinstance(skus, str):
@@ -47,6 +47,7 @@ class CheckoutSolution:
         reduce_count = (group_count // 3) * 3
         print(f"Reduce Count: {reduce_count}")
         for sku in self.SPECIAL_OFFERS_GROUP:
+            print (f"SKU: {sku}")
             if reduce_count == 0:
                 break
             print(f"Reduce Count: {reduce_count}")
@@ -56,6 +57,8 @@ class CheckoutSolution:
             print(f"sku_counts_dict[sku]: {sku_counts_dict[sku]}")
             reduce_count -= reduce
             print(f"Reduce Count: {reduce_count}")
+
+        print (f"sku_counts_dict: {sku_counts_dict}")
 
         for sku, count in sku_counts_dict.items():
             if sku in self.SPECIAL_OFFERS_DISCOUNT:
@@ -74,5 +77,6 @@ if __name__ == "__main__":
     print(checkout.checkout("STXYZ"))
     print(checkout.checkout("ZZYY"))
     print(checkout.checkout("XXXYY"))
+
 
 
