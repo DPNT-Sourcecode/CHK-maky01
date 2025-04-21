@@ -1,13 +1,10 @@
 import collections
 
 class CheckoutSolution:
-
-    PRICES = {'A': 50, 'B': 30, 'C': 20, 'D': 15}
-    SPECIAL_OFFERS = {'A': (3, 130), 'B': (2, 45)}
-
     # skus = unicode string
     def checkout(self, skus):
-
+        self.PRICES = {'A': 50, 'B': 30, 'C': 20, 'D': 15}
+        self.SPECIAL_OFFERS = {'A': (3, 130), 'B': (2, 45)}
         # Check to see input is a string
         if not isinstance(skus, str):
             return -1
@@ -31,13 +28,14 @@ class CheckoutSolution:
             total_price += count * self.PRICES[sku]
         return total_price
 
-# # test function
-# if __name__ == "__main__":
-#     checkout = CheckoutSolution()
-#     skus = 'AABBCD'
-#     print(checkout.checkout(skus))
+# test function
+if __name__ == "__main__":
+    checkout = CheckoutSolution()
+    skus = 'AABBCD'
+    print(checkout.checkout(skus))
 
 
 
     
+
 
