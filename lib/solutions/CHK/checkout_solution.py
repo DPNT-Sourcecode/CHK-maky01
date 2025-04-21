@@ -20,11 +20,22 @@ class CheckoutSolution:
             if char not in self.PRICES:
                 return -1
             sku_counts_dict[char] += 1
-        
-        print (sku_counts_dict)
 
+        total_price = 0
+        for sku, count in sku_counts_dict.items():
+            if sku in self.SPECIAL_OFFERS:
+                offer_count, offer_price = self.SPECIAL_OFFERS[sku]
+                num_offers = count // offer_count
+                total_price += num_offers * offer_price
+                count %= offer_count
+            total_price += count * self.PRICES[sku]
+        return total_price
 
-        # sku_counts = tuple()
+# test function
+if __name__ == "__main__":
+    checkout = CheckoutSolution()
+    skus = 'AABBCD'
+    print(checkout.checkout(skus))
 
 
 # check to see if input is valid, return -1 if not valid
@@ -37,3 +48,4 @@ class CheckoutSolution:
 
 
     
+
