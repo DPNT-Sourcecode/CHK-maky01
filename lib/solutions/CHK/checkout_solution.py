@@ -31,20 +31,12 @@ class CheckoutSolution:
             total_price += count * self.PRICES[sku]
         return total_price
 
-# test function
-if __name__ == "__main__":
-    checkout = CheckoutSolution()
-    skus = 'AABBCD'
-    print(checkout.checkout(skus))
+# # test function
+# if __name__ == "__main__":
+#     checkout = CheckoutSolution()
+#     skus = 'AABBCD'
+#     print(checkout.checkout(skus))
 
-
-# check to see if input is valid, return -1 if not valid
-#   check each character in skus is in PRICES
-
-# Sum each character
-
-
-# Calculate total price with discounts
 
 
     
