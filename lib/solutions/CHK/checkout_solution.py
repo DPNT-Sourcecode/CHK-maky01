@@ -1,5 +1,3 @@
-import collections
-
 class CheckoutSolution:
     # skus = unicode string
     def checkout(self, skus):
@@ -12,8 +10,7 @@ class CheckoutSolution:
             return -1
 
         # Create a dictionary with zero count for each SKU
-        sku_counts_dict = collections.Counter()
-        print (sku_counts_dict)
+        sku_counts_dict = {sku: 0 for sku in self.PRICES.keys()}
 
         # Check to see if each SKU is in the PRICES dictionary and add to count of each SKU is it is
         for char in skus:
@@ -23,11 +20,11 @@ class CheckoutSolution:
 
         total_price = 0
         for sku, count in sku_counts_dict.items():
-            if sku in self.SPECIAL_OFFERS_FREE:
-                free_count, free_sku = self.SPECIAL_OFFERS_FREE[sku]
-                if sku_counts_dict[free_sku] >= free_count:
-                    free_items = sku_counts_dict[free_sku] // free_count
-                    sku_counts_dict[free_sku] = max(0, sku_counts_dict[free_sku] - free_items)
+        #     if sku in self.SPECIAL_OFFERS_FREE:
+        #         free_count, free_sku = self.SPECIAL_OFFERS_FREE[sku]
+        #         if sku_counts_dict[free_sku] >= free_count:
+        #             free_items = sku_counts_dict[free_sku] // free_count
+        #             sku_counts_dict[free_sku] = max(0, sku_counts_dict[free_sku] - free_items)
 
             if sku in self.SPECIAL_OFFERS_DISCOUNT:
                 offer_count, offer_price = self.SPECIAL_OFFERS_DISCOUNT[sku]
@@ -38,12 +35,8 @@ class CheckoutSolution:
             total_price += count * self.PRICES[sku]
         return total_price
 
-# # test function
-# if __name__ == "__main__":
-#     checkout = CheckoutSolution()
-#     skus = 'AABBCD'
-#     print(checkout.checkout(skus))
-
-
-
-
+# test function
+if __name__ == "__main__":
+    checkout = CheckoutSolution()
+    skus = 'AABBCD'
+    print(checkout.checkout(skus))
