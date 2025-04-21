@@ -2,7 +2,7 @@ class CheckoutSolution:
     # skus = unicode string
     def checkout(self, skus):
         self.PRICES = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40}
-        self.SPECIAL_OFFERS_DISCOUNT = {'A': [(5, 200), (3, 130)], 'B': (2, 45)}
+        self.SPECIAL_OFFERS_DISCOUNT = {'A': [(5, 200), (3, 130)], 'B': [(2, 45)]}
         self.SPECIAL_OFFERS_FREE = {'E': (2, 'B')}
 
         # Check to see input is a string
@@ -22,7 +22,7 @@ class CheckoutSolution:
         for sku, count in sku_counts_dict.items():
             if sku in self.SPECIAL_OFFERS_FREE:
                 free_count, free_sku = self.SPECIAL_OFFERS_FREE[sku]
-                free_items = sku_counts_dict[free_sku] // free_count
+                free_items = count // free_count
                 sku_counts_dict[free_sku] = max(0, sku_counts_dict[free_sku] - free_items)
 
             if sku in self.SPECIAL_OFFERS_DISCOUNT:
@@ -41,4 +41,5 @@ if __name__ == "__main__":
     checkout = CheckoutSolution()
     skus = 'AABBCD'
     print(checkout.checkout(skus))
+
 
