@@ -20,7 +20,6 @@ class CheckoutSolution:
 
         print(f"SKU counts: {sku_counts_dict}")
 
-        total_price = 0
         for sku, count in sku_counts_dict.items():
             if sku in self.SPECIAL_OFFERS_FREE:
                 free_count, free_sku = self.SPECIAL_OFFERS_FREE[sku]
@@ -30,6 +29,8 @@ class CheckoutSolution:
                 sku_counts_dict[free_sku] = max(0, sku_counts_dict[free_sku] - free_items)
                 print(f"Updated {free_sku} count: {sku_counts_dict[free_sku]}")
 
+        total_price = 0
+        for sku, count in sku_counts_dict.items():
             if sku in self.SPECIAL_OFFERS_DISCOUNT:
                 offers = self.SPECIAL_OFFERS_DISCOUNT[sku]
                 for offer_count, offer_price in offers:
@@ -40,14 +41,15 @@ class CheckoutSolution:
             total_price += count * self.PRICES[sku]
         return total_price
 
-# test function
-if __name__ == "__main__":
-    checkout = CheckoutSolution()
-    print(checkout.checkout("EE"))
-    print(checkout.checkout("EEB"))
-    print(checkout.checkout("EEBB"))
-    print(checkout.checkout("EEBBB"))
-    print(checkout.checkout("AABBEE"))
+# # test function
+# if __name__ == "__main__":
+#     checkout = CheckoutSolution()
+#     print(checkout.checkout("EE"))
+#     print(checkout.checkout("EEB"))
+#     print(checkout.checkout("EEBB"))
+#     print(checkout.checkout("EEBBB"))
+#     print(checkout.checkout("AABBEE"))
+
 
 
 
