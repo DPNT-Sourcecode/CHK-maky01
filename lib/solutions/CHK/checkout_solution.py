@@ -1,8 +1,8 @@
 class CheckoutSolution:
     # skus = unicode string
     def checkout(self, skus):
-        self.PRICES = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40}
-        self.SPECIAL_OFFERS_DISCOUNT = {'A': [(5, 200), (3, 130)], 'B': [(2, 45)]}
+        self.PRICES = {'A': 50, 'B': 30, 'C': 20, 'D': 15, 'E': 40, 'F': 10}
+        self.SPECIAL_OFFERS_DISCOUNT = {'A': [(5, 200), (3, 130)], 'B': [(2, 45)], 'F': [(3, 20)]}
         self.SPECIAL_OFFERS_FREE = {'E': (2, 'B')}
 
         # Check to see input is a string
@@ -49,9 +49,4 @@ class CheckoutSolution:
 #     print(checkout.checkout("EEBB"))
 #     print(checkout.checkout("EEBBB"))
 #     print(checkout.checkout("AABBEE"))
-
-
-
-
-
 
