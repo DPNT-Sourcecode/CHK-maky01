@@ -26,7 +26,7 @@ class CheckoutSolution:
                 return -1
             sku_counts_dict[char] += 1
 
-        print(f"SKU counts: {sku_counts_dict}")
+        # print(f"SKU counts: {sku_counts_dict}")
 
         for sku, count in sku_counts_dict.items():
             if sku in self.SPECIAL_OFFERS_FREE:
@@ -40,14 +40,15 @@ class CheckoutSolution:
 
         total_price = 0
 
-        group_count = 0
-        group_list = []
-        for sku in self.SPECIAL_OFFERS_GROUP:
-            group_list.append((sku, sku_counts_dict[sku]))
-            group_count += sku_counts_dict[sku]
+        group_count = sum(sku_counts_dict[sku] for sku in self.SPECIAL_OFFERS_GROUP)
         total_price += (group_count // 3) * 45
-        # for sku, count in group_list:
-                
+        reduce_count = (group_count // 3) * 3
+        for sku in self.SPECIAL_OFFERS_GROUP:
+            if reduce_count == 0:
+                break
+            reduce = min(sku_counts_dict[sku], reduce_count)
+            sku_counts_dict[sku] -= reduce
+            reduce_count -= reduce
 
         for sku, count in sku_counts_dict.items():
             if sku in self.SPECIAL_OFFERS_DISCOUNT:
@@ -63,6 +64,7 @@ class CheckoutSolution:
 # test function
 if __name__ == "__main__":
     checkout = CheckoutSolution()
-    print(checkout.checkout("AABCDEFGHIJKLMNOPQRSTUVWXYZ"))
-    print(checkout.checkout("EENNRRFFUUVV"))
-    print(checkout.checkout("AAAAAABBEEHHHHHHHHHHKK"))
+    print(checkout.checkout("STXYZ"))
+    print(checkout.checkout("ZZYY"))
+    print(checkout.checkout("XXXYY"))
+
