@@ -28,7 +28,6 @@ class CheckoutSolution:
             if sku in self.SPECIAL_OFFERS_DISCOUNT:
                 offers = self.SPECIAL_OFFERS_DISCOUNT[sku]
                 for offer_count, offer_price in offers:
-                    offer_count, offer_price = self.SPECIAL_OFFERS_DISCOUNT[sku]
                     num_offers = count // offer_count
                     total_price += num_offers * offer_price
                     count %= offer_count
@@ -39,7 +38,12 @@ class CheckoutSolution:
 # test function
 if __name__ == "__main__":
     checkout = CheckoutSolution()
-    skus = 'AABBCD'
-    print(checkout.checkout(skus))
+    print(checkout.checkout("EE"))
+    print(checkout.checkout("EEB"))
+    print(checkout.checkout("EEBB"))
+    print(checkout.checkout("EEBBB"))
+    print(checkout.checkout("AABBEE"))
+
+
 
 
