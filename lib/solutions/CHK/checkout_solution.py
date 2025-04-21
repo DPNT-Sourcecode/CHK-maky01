@@ -11,6 +11,7 @@ class CheckoutSolution:
                                         'H': [(10, 80), (5, 45)], 'K': [(2, 120)], 'P': [(5, 200)],
                                         'Q': [(3, 80)], 'U':[(4, 120)], 'V': [(3, 130), (2, 90)]}
         self.SPECIAL_OFFERS_FREE = {'E': (2, 'B'), 'N': (3, 'M'), 'R': (3, 'Q')}
+        self.SPECIAL_OFFERS_GROUP = {'S', 'T', 'X', 'Y', 'Z'}
 
         # Check to see input is a string
         if not isinstance(skus, str):
@@ -54,4 +55,5 @@ if __name__ == "__main__":
     print(checkout.checkout("AABCDEFGHIJKLMNOPQRSTUVWXYZ"))
     print(checkout.checkout("EENNRRFFUUVV"))
     print(checkout.checkout("AAAAAABBEEHHHHHHHHHHKK"))
+
 
