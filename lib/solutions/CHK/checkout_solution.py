@@ -20,17 +20,18 @@ class CheckoutSolution:
 
         total_price = 0
         for sku, count in sku_counts_dict.items():
-        #     if sku in self.SPECIAL_OFFERS_FREE:
-        #         free_count, free_sku = self.SPECIAL_OFFERS_FREE[sku]
-        #         if sku_counts_dict[free_sku] >= free_count:
-        #             free_items = sku_counts_dict[free_sku] // free_count
-        #             sku_counts_dict[free_sku] = max(0, sku_counts_dict[free_sku] - free_items)
+            if sku in self.SPECIAL_OFFERS_FREE:
+                free_count, free_sku = self.SPECIAL_OFFERS_FREE[sku]
+                free_items = sku_counts_dict[free_sku] // free_count
+                sku_counts_dict[free_sku] = max(0, sku_counts_dict[free_sku] - free_items)
 
             if sku in self.SPECIAL_OFFERS_DISCOUNT:
-                offer_count, offer_price = self.SPECIAL_OFFERS_DISCOUNT[sku]
-                num_offers = count // offer_count
-                total_price += num_offers * offer_price
-                count %= offer_count
+                offers = self.SPECIAL_OFFERS_DISCOUNT[sku]
+                for offer_count, offer_price in offers:
+                    offer_count, offer_price = self.SPECIAL_OFFERS_DISCOUNT[sku]
+                    num_offers = count // offer_count
+                    total_price += num_offers * offer_price
+                    count %= offer_count
 
             total_price += count * self.PRICES[sku]
         return total_price
@@ -40,3 +41,4 @@ if __name__ == "__main__":
     checkout = CheckoutSolution()
     skus = 'AABBCD'
     print(checkout.checkout(skus))
+
