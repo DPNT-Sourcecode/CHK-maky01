@@ -63,7 +63,3 @@ if __name__ == "__main__":
     print(checkout.checkout("STXYZ"))
     print(checkout.checkout("ZZYY"))
     print(checkout.checkout("XXXYY"))
-
-
-
-
