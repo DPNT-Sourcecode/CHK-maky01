@@ -9,3 +9,8 @@ class TestCheckout():
         assert CheckoutSolution.checkout(self, "AAB") == 130
         assert CheckoutSolution.checkout(self, "ABCD") == 115
         assert CheckoutSolution.checkout(self, "AAABBCCDD") == 245
+        assert CheckoutSolution.checkout(self, "EE") == 80
+        assert CheckoutSolution.checkout(self, "EEB") == 80
+        assert CheckoutSolution.checkout(self, "EEBB") == 110
+        assert CheckoutSolution.checkout(self, "EEBBB") == 125
+

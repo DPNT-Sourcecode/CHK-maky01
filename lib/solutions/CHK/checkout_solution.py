@@ -22,6 +22,12 @@ class CheckoutSolution:
 
         total_price = 0
         for sku, count in sku_counts_dict.items():
+            if sku in self.SPECIAL_OFFERS_FREE:
+                free_count, free_sku = self.SPECIAL_OFFERS_FREE[sku]
+                if sku_counts_dict[free_sku] >= free_count:
+                    free_items = sku_counts_dict[free_sku] // free_count
+                    sku_counts_dict[free_sku] -= free_items * free_count
+
             if sku in self.SPECIAL_OFFERS_DISCOUNT:
                 offer_count, offer_price = self.SPECIAL_OFFERS_DISCOUNT[sku]
                 num_offers = count // offer_count
@@ -35,5 +41,6 @@ class CheckoutSolution:
 #     checkout = CheckoutSolution()
 #     skus = 'AABBCD'
 #     print(checkout.checkout(skus))
+
 
 
