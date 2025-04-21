@@ -66,5 +66,3 @@ if __name__ == "__main__":
     print(checkout.checkout("AABCDEFGHIJKLMNOPQRSTUVWXYZ"))
     print(checkout.checkout("EENNRRFFUUVV"))
     print(checkout.checkout("AAAAAABBEEHHHHHHHHHHKK"))
-
-
