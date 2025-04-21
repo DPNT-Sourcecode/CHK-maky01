@@ -40,12 +40,13 @@ class CheckoutSolution:
 
         total_price = 0
 
+        group_count = 0
+        group_list = []
         for sku in self.SPECIAL_OFFERS_GROUP:
-            group_list = [(sku, sku_counts_dict[sku])]
+            group_list.append((sku, sku_counts_dict[sku]))
             group_count += sku_counts_dict[sku]
         total_price += (group_count // 3) * 45
-        for item in group_count:
-            for sku, count in group_list:
+        # for sku, count in group_list:
                 
 
         for sku, count in sku_counts_dict.items():
@@ -65,4 +66,5 @@ if __name__ == "__main__":
     print(checkout.checkout("AABCDEFGHIJKLMNOPQRSTUVWXYZ"))
     print(checkout.checkout("EENNRRFFUUVV"))
     print(checkout.checkout("AAAAAABBEEHHHHHHHHHHKK"))
+
 
