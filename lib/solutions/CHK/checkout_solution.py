@@ -28,14 +28,11 @@ class CheckoutSolution:
             total_price += count * self.PRICES[sku]
         return total_price
 
-# test function
-if __name__ == "__main__":
-    checkout = CheckoutSolution()
-    skus = 'AABBCD'
-    print(checkout.checkout(skus))
+# # test function
+# if __name__ == "__main__":
+#     checkout = CheckoutSolution()
+#     skus = 'AABBCD'
+#     print(checkout.checkout(skus))
 
-
-
-    
 
 
