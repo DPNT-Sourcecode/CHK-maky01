@@ -30,6 +30,7 @@ class TestCheckout():
         assert CheckoutSolution.checkout(self, "ABCD") == 115
         assert CheckoutSolution.checkout(self, "AAABBCCDD") == 245
         assert CheckoutSolution.checkout(self, "EEBBB") == 125
-        assert CheckoutSolution.checkout(self, "AABCDEFGHIJKLMNOPQRSTUVWXYZ") == 965
-        assert CheckoutSolution.checkout(self, "EENNRRFFUUVV") == 490
-        assert CheckoutSolution.checkout(self, "AAAAAABBEEHHHHHHHHHHKK") == 475
+        assert CheckoutSolution.checkout(self, "AABCDEFGHIJKLMNOPQRSTUVWXYZ") == 1015
+        assert CheckoutSolution.checkout(self, "EENNRRFFUUVV") == 450
+        assert CheckoutSolution.checkout(self, "AAAAAABBEEHHHHHHHHHHKK") == 590
+
